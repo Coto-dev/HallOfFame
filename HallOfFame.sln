@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HallOfFame", "HallOfFame\HallOfFame.csproj", "{8DCF1DC8-1121-4765-92C4-C8F7827085D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HallOfFame.BLL", "HallOfFame.BLL\HallOfFame.BLL.csproj", "{9CD655CD-9866-420E-A49D-D3CBF5854F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HallOfFame.DAL", "HallOfFame.DAL\HallOfFame.DAL.csproj", "{C055F99F-E9F8-453D-B2FC-DF406DFDCB79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HallOfFame.Common", "HallOfFame.Common\HallOfFame.Common.csproj", "{57F10DF1-682F-4FF9-AE04-0ED013F81F4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{48F1713D-0D71-4D8D-AE51-19D71E60CF92}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DCF1DC8-1121-4765-92C4-C8F7827085D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DCF1DC8-1121-4765-92C4-C8F7827085D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DCF1DC8-1121-4765-92C4-C8F7827085D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DCF1DC8-1121-4765-92C4-C8F7827085D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD655CD-9866-420E-A49D-D3CBF5854F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD655CD-9866-420E-A49D-D3CBF5854F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD655CD-9866-420E-A49D-D3CBF5854F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD655CD-9866-420E-A49D-D3CBF5854F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C055F99F-E9F8-453D-B2FC-DF406DFDCB79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C055F99F-E9F8-453D-B2FC-DF406DFDCB79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C055F99F-E9F8-453D-B2FC-DF406DFDCB79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C055F99F-E9F8-453D-B2FC-DF406DFDCB79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F10DF1-682F-4FF9-AE04-0ED013F81F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F10DF1-682F-4FF9-AE04-0ED013F81F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F10DF1-682F-4FF9-AE04-0ED013F81F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F10DF1-682F-4FF9-AE04-0ED013F81F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
