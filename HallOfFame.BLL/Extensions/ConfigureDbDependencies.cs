@@ -7,7 +7,7 @@ namespace HallOfFame.BLL.Extensions;
 
 public static class ConfigureDbDependencies {
     /// <summary>
-    /// Add AuthAPI BL service Identity dependencies
+    /// Add database context dependency
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>

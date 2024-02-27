@@ -15,7 +15,10 @@ public class PersonService : IPersonService {
         _dbContext = dbContext;
         _logger = logger;
     }
-
+    /// <summary>
+    /// Get all persons
+    /// </summary>
+    /// <returns></returns>
     public async Task<List<PersonDto>> GetPersonsAsync() {
         var persons = await _dbContext.Persons
             .Include(p => p.Skills)
@@ -25,13 +28,17 @@ public class PersonService : IPersonService {
             Name = p.Name,
             DisplayName = p.DisplayName,
             Skills = p.Skills.Select(s=> new SkillDto {
-                Id = s.Id,
                 Name = s.Name,
                 Level = s.Level
             }).ToList()
         }).ToList();
     }
-
+    /// <summary>
+    /// Get person by id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    /// <exception cref="NotFoundException"></exception>
     public async Task<PersonDto> GetPersonAsync(long id) {
         var person = await _dbContext.Persons
             .Include(p => p.Skills)
@@ -43,14 +50,16 @@ public class PersonService : IPersonService {
             Name = person.Name,
             DisplayName = person.DisplayName,
             Skills = person.Skills.Select(s => new SkillDto {
-                Id = s.Id,
                 Name = s.Name,
                 Level = s.Level
             }).ToList()
         };
     }
-
-    public async Task CreatePerson(PersonCreateEditDto model) {
+    /// <summary>
+    /// Create person
+    /// </summary>
+    /// <param name="model"></param>
+    public async Task CreatePersonAsync(PersonCreateEditDto model) {
         var person = new Person {
             Name = model.Name,
             DisplayName = model.DisplayName,
@@ -66,7 +75,12 @@ public class PersonService : IPersonService {
         await _dbContext.SaveChangesAsync();
         _logger.LogInformation("Person successfully created");
     }
-
+    /// <summary>
+    /// Edit person by id
+    /// </summary>
+    /// <param name="model"></param>
+    /// <param name="id"></param>
+    /// <exception cref="NotFoundException"></exception>
     public async Task EditPersonAsync(PersonCreateEditDto model, long id) {
         var person = await _dbContext.Persons
             .Include(p => p.Skills)
@@ -80,14 +94,18 @@ public class PersonService : IPersonService {
                 Name = s.Name,
                 Level = s.Level,
                 Person = person
-            });
-        await _dbContext.AddRangeAsync(skills);
+            }).ToList();
+        person.Skills = skills;
         _dbContext.Persons.Update(person);
         await _dbContext.SaveChangesAsync();
         _logger.LogInformation("Person successfully edited");
         
     }
-
+    /// <summary>
+    /// Delete person by id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <exception cref="NotFoundException"></exception>
     public async Task DeletePersonAsync(long id) {
         var person = await _dbContext.Persons
             .Include(p => p.Skills)

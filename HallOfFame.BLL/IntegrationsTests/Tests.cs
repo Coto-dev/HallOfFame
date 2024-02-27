@@ -36,7 +36,7 @@ public class Tests {
     }
     
     [Fact]
-    public async void GetPersonsAsync_Count_3() {
+    public async Task GetPersonsAsync_Count_3() {
         //Arrange
         var options = new DbContextOptionsBuilder<BackendDbContext>()
             .Options;
@@ -54,7 +54,7 @@ public class Tests {
         Assert.Equal(3, result.Count);
     }
     [Fact]
-    public async void GetPersonsAsync_NameOfPersonWithId3_Mark() {
+    public async Task GetPersonsAsync_NameOfPersonWithId3_Mark() {
         //Arrange
         var options = new DbContextOptionsBuilder<BackendDbContext>()
             .Options;

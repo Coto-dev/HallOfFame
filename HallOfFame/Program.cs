@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text.Json.Serialization;
 using HallOfFame.BLL.Extensions;
 using HallOfFame.Common.MiddleWares;
@@ -27,7 +28,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hall of Frame", Version = "v1" });                
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hall of Frame", Version = "v1" });   
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 builder.Services.AddAuthorization();
