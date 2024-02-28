@@ -1,15 +1,16 @@
 ﻿version: '3'
 services:
-  postgres:
-    image: postgres:latest
+  HallOfFrame-db:
+    image: postgres:15
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: HallOfFrame-db
     restart: always
     ports:
       - "5432:5432"
     networks:
-      - internal-network
+      - bridge-network
     volumes:
       - postgres_data:/var/lib/postgresql/data
   
@@ -18,13 +19,21 @@ services:
       context: .
       dockerfile: HallOfFame/Dockerfile
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - BackendDatabase=Host=db;Database=HallOfFrame-db;Username=postgres;Password=postgres
+      ConnectionStrings_Default: Server=HallOfFrame-db;Port=5432;Database=DB;User Id=postgres;Password=postgres;
     ports:
         - "8080:8080"
         - "8081:8081"
+    depends_on:
+      - HallOfFrame-db
+    networks:
+      - bridge-network
+
     volumes:
       - /var/log/HallOfFame:/app/logs
 
+networks:
+  bridge-network:
+    driver: bridge
+    
 volumes:
-  postgres-data:
+  postgres_data:

@@ -19,10 +19,7 @@ builder.Services.AddCors(options => {
 // Add services to the container.
 builder.Services.AddBllServices();
 builder.Services.AddDbContext(builder.Configuration);
-builder.Services.AddControllers().AddJsonOptions(opts => {
-    var enumConverter = new JsonStringEnumConverter();
-    opts.JsonSerializerOptions.Converters.Add(enumConverter);
-});
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -44,13 +41,14 @@ builder.Logging.AddSerilog(logger);
 
 var app = builder.Build();
 
+await app.MigrateDbAsync();
+
 // Configure the HTTP request pipeline.
     app.UseSwagger();
     app.UseSwaggerUI();
 
 
 app.UseErrorHandleMiddleware();
-
 
 app.UseHttpsRedirection();
 

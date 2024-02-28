@@ -26,7 +26,7 @@ public class PersonController: ControllerBase {
     [HttpGet]
     public async Task<ActionResult<List<PersonDto>>> GetPersonsAsync() {
         return await _personService.GetPersonsAsync();
-    }
+    } 
     
     /// <summary>
     /// Get person by id
